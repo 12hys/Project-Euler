@@ -1,0 +1,49 @@
+def unique(seq):
+    seen = set()
+    seen_add = seen.add
+    return [ x for x in seq if x not in seen and not seen_add(x)]
+
+def increment(x):
+    return x+1
+def prime_factorization( num, primes ):
+    factor = []         #returns the prime factors of a number
+    factorization = []  #returns a factorization of the elements in the factor list above. there exists a bijection between factor and factorization
+    #temp_primes = [i for i in primes if i <= num]
+    for x in primes:
+        if( num % x == 0 ):
+            factor.append( x )
+    for x in factor:
+        tempCtr = 1
+        temp = num / x
+        while( temp % x == 0 ):
+            tempCtr += 1
+            temp = temp / x
+        factorization.append( tempCtr )
+    temp = map( increment, factorization )
+    return reduce(lambda x, y: x*y, temp)
+
+def multiplicative_order( a, n ):
+    if fractions.gcd( a, n ) > 1:
+        return 0
+    else:
+        order = 1
+        mod_exp = a
+        while mod_exp != 1 :
+            order += 1
+            mod_exp = (mod_exp * a) % n
+    return order
+'''
+
+def eratosthenes_sieve(n):
+    candidates = list(range(n+1))
+    fin = int(n**0.5)
+    for i in xrange(2, fin+1):
+        if candidates[i]:
+            candidates[2*i::i] = [None] * (n//i - 1)
+    return [i for i in candidates[2:] if i]
+
+numberofprimes = 11000000
+print( "Loading primes..." )
+primes = eratosthenes_sieve(numberofprimes)
+print( "Done loading primes..." )
+'''
