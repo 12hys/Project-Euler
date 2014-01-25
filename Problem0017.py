@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 def special_cases( number ):
     if( number == 10 ):
         return 'ten'

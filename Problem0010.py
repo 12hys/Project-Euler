@@ -1,8 +1,4 @@
-'''
-Created on Jun 5, 2011
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 #sieve from wikipedia
 def eratosthenes_sieve(n):

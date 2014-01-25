@@ -1,8 +1,4 @@
-'''
-Created on Jul 18, 2011
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 fone = 1
 ftwo = 1
@@ -13,4 +9,5 @@ while(len(str(fthree)) < 1000):
     fone = ftwo
     ftwo = fthree
     ctr += 1
-print( "ctr: " + ctr )
+
+print( "ctr: " + str( ctr ) )

@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from multiprocessing import Pool
 import sys
 

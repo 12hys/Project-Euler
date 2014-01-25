@@ -1,8 +1,4 @@
-'''
-Created on Jun 7, 2011
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 m = range(1, 1001)
 found = False

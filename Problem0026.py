@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import fractions
 
 def eratosthenes_sieve( n ):

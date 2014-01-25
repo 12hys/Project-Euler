@@ -1,8 +1,5 @@
-'''
-Created on Jul 15, 2011
+#!/usr/bin/python
 
-@author: Rhys
-'''
 #square = 1001*1001
 #ctr = 3 #start at the 3x3 grid
 #totSum = 1 #we know the first number is 1

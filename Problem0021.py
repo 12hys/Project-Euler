@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 def get_sum_of_divisors( number ):
     divisors = []
     possible_divisors = range( 1, number )

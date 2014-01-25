@@ -1,8 +1,5 @@
-'''
-Created on Jul 15, 2011
+#!/usr/bin/python
 
-@author: Rhys
-'''
 import time
 
 t1 = time.time()

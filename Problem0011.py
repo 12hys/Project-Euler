@@ -1,8 +1,4 @@
-'''
-Created on Jun 8, 211
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 north = False
 south = False

@@ -1,8 +1,5 @@
-'''
-Created on Jun 5, 2011
+#!/usr/bin/python
 
-@author: Rhys
-'''
 x = 1
 
 def loop(start):

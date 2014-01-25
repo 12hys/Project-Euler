@@ -1,8 +1,5 @@
-'''
-Created on Jun 9, 2011
+#!/usr/bin/python
 
-@author: Rhys
-'''
 #this is a VERY inefficient solution,
 #it takes a long time to compute
 

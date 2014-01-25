@@ -1,8 +1,4 @@
-'''
-Created on Jul 13, 2011
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 file = open('triangle-18.txt', 'r')
 stringsOfNumbers = file.readlines()

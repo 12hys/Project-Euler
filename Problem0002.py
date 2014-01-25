@@ -1,8 +1,4 @@
-'''
-Created on Jun 5, 2011
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 sum = 0
 ctr = 0

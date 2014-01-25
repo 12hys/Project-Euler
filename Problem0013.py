@@ -1,8 +1,5 @@
-'''
-Created on Jun 8, 2011
+#!/usr/bin/python
 
-@author: Rhys
-'''
 file = open('Problem0013.txt', 'r')
 x = file.readlines()
 

@@ -1,8 +1,5 @@
-'''
-Created on Jun 5, 2011
+#!/usr/bin/python
 
-@author: Rhys
-'''
 maxSteps = 0
 startingNumber = 0
 

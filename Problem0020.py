@@ -1,8 +1,4 @@
-'''
-Created on Jun 9, 2011
-
-@author: Rhys
-'''
+#!/usr/bin/python
 
 def fact(n):
     if (n == 1): return 1
