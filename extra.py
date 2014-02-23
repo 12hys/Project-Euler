@@ -1,3 +1,6 @@
+import math
+import fractions
+
 def unique(seq):
     seen = set()
     seen_add = seen.add
@@ -5,6 +8,7 @@ def unique(seq):
 
 def increment(x):
     return x+1
+
 def prime_factorization( num, primes ):
     factor = []         #returns the prime factors of a number
     factorization = []  #returns a factorization of the elements in the factor list above. there exists a bijection between factor and factorization
@@ -32,18 +36,25 @@ def multiplicative_order( a, n ):
             order += 1
             mod_exp = (mod_exp * a) % n
     return order
-'''
 
-def eratosthenes_sieve(n):
+def is_prime( number ):
+    if( number % 2 == 0 ):
+        return False
+
+    ctr = 0
+    for i in range( 2, int( math.ceil( math.sqrt( number ) ) ) + 1 ):
+        if( number % i == 0 ):
+            ctr += 1
+    if( ctr >= 1 ):
+        return False
+    else:
+        return True
+
+def eratosthenes_sieve():
+    n = 100000000
     candidates = list(range(n+1))
     fin = int(n**0.5)
     for i in xrange(2, fin+1):
         if candidates[i]:
             candidates[2*i::i] = [None] * (n//i - 1)
     return [i for i in candidates[2:] if i]
-
-numberofprimes = 11000000
-print( "Loading primes..." )
-primes = eratosthenes_sieve(numberofprimes)
-print( "Done loading primes..." )
-'''
