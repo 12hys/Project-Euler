@@ -1,11 +1,21 @@
-#!/usr/bin/pypy
+#!/usr/bin/python
 
-from extra import eratosthenes_sieve, prime_factorization
-
-list_of_primes = eratosthenes_sieve()
+import extra
 
 start = 10
-end = 20
+end = 100
+list_of_primes = extra.eratosthenes_sieve()
+
+#all of the numbers where the number of 
+#digits of the number equal the distinct
+#number of primes
+prime_length = []
 
 for i in range( start, end + 1 ):
-    print( str( i ) + ':', prime_factorization( i ) )
+    number_of_digits = extra.number_of_digits( i )
+    prime_factorization = extra.prime_factorization( i, list_of_primes )
+
+    if( number_of_digits == len( prime_factorization ) ):
+        prime_length.append( i )
+
+print prime_length

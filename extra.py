@@ -9,6 +9,10 @@ def unique(seq):
 def increment(x):
     return x+1
 
+def number_of_digits( num ):
+    return len( str( num ) )
+
+'''
 def prime_factorization( num, primes ):
     factor = []         #returns the prime factors of a number
     factorization = []  #returns a factorization of the elements in the factor list above. there exists a bijection between factor and factorization
@@ -25,6 +29,7 @@ def prime_factorization( num, primes ):
         factorization.append( tempCtr )
     temp = map( increment, factorization )
     return reduce(lambda x, y: x*y, temp)
+'''
 
 def multiplicative_order( a, n ):
     if fractions.gcd( a, n ) > 1:
@@ -51,10 +56,22 @@ def is_prime( number ):
         return True
 
 def eratosthenes_sieve():
-    n = 100000000
-    candidates = list(range(n+1))
-    fin = int(n**0.5)
-    for i in xrange(2, fin+1):
+    n = 10000000
+    print "Loading " + str( n ) + " primes "
+    candidates = list( range( n + 1 ) )
+    fin = int( n**0.5 )
+    for i in xrange( 2, fin + 1 ):
         if candidates[i]:
             candidates[2*i::i] = [None] * (n//i - 1)
     return [i for i in candidates[2:] if i]
+
+def prime_factorization( number, list_of_primes ):
+    primes = []
+    for prime_number in list_of_primes:
+        if( prime_number > number ):
+            break
+
+        if( number % prime_number == 0 ):
+            primes.append(prime_number)
+
+    return primes
