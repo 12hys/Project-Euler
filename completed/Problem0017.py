@@ -1,80 +1,54 @@
 #!/usr/bin/python
 
 def special_cases( number ):
-    if( number == 10 ):
-        return 'ten'
-    elif( number == 11 ):
-        return 'eleven'
-    elif( number == 12 ):
-        return 'twelve'
-    elif( number == 13 ):
-        return 'thirteen'
-    elif( number == 14 ):
-        return 'fourteen'
-    elif( number == 15 ):
-        return 'fifteen'
-    elif( number == 16 ):
-        return 'sixteen'
-    elif( number == 17 ):
-        return 'seventeen'
-    elif( number == 18 ):
-        return 'eighteen'
-    elif( number == 19 ):
-        return 'nineteen'
-    else:
-        return None
+    hashmap = {
+    10: 'ten',
+    11: 'eleven',
+    12: 'twelve',
+    13: 'thirteen',
+    14: 'fourteen',
+    15: 'fifteen',
+    16: 'sixteen',
+    17: 'seventeen',
+    18: 'eighteen',
+    19: 'nineteen'
+    }
+
+    if number in hashmap.keys(): return hashmap[number]
+    return None
 
 def ones( number ):
-    if( number == 0 ):
-        return 'zero'
-    elif( number == 1 ):
-        return 'one'
-    elif( number == 2 ):
-        return 'two'
-    elif( number == 3 ):
-        return 'three'
-    elif( number == 4 ):
-        return 'four'
-    elif( number == 5 ):
-        return 'five'
-    elif( number == 6 ):
-        return 'six'
-    elif( number == 7 ):
-        return 'seven'
-    elif( number == 8 ):
-        return 'eight'
-    elif( number == 9 ):
-        return 'nine'
-    else:
-        return None
+    hashmap = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine'
+    }
+
+    if number in hashmap.keys(): return hashmap[number]
+    return None
 
 def tens( number ):
-    if( number >= 20 and number < 30 ):
-        return 'twenty'
-    elif( number >= 30 and number < 40 ):
-        return 'thirty'
-    elif( number >= 40 and number < 50 ):
-        return 'forty'
-    elif( number >= 50 and number < 60 ):
-        return 'fifty'
-    elif( number >= 60 and number < 70 ):
-        return 'sixty'
-    elif( number >= 70 and number < 80 ):
-        return 'seventy'
-    elif( number >= 80 and number < 90 ):
-        return 'eighty'
-    elif( number >= 90 and number < 100 ):
-        return 'ninety'
-    else:
-        return None
+    if 20 <= number < 30: return 'twenty'
+    if 30 <= number < 40: return 'thirty'
+    if 40 <= number < 50: return 'forty'
+    if 50 <= number < 60: return 'fifty'
+    if 60 <= number < 70: return 'sixty'
+    if 70 <= number < 80: return 'seventy'
+    if 80 <= number < 90: return 'eighty'
+    if 90 <= number < 100: return 'ninety'
+    return None
 
 def more( number ):
-    if( number >= 100 and number < 1000 ):
-        return 'hundred'
-    elif( number >= 1000 and number < 1000000 ):
-        return 'million'
-    else:
-        return None
+    if 100 <= number < 1000: return 'hundred'
+    if 1000 <= number < 1000000: return 'million'
+    return None
 
 string = ''
 for i in range( 1, 999 + 1 ):
@@ -108,5 +82,4 @@ for i in range( 1, 999 + 1 ):
             else:
                 string += tens( tens_num ) + str( ones( tens_num % 10 ) )
 
-print string + 'onethousand'
 print len( string + 'onethousand' )
