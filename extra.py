@@ -12,25 +12,6 @@ def increment(x):
 def number_of_digits( num ):
     return len( str( num ) )
 
-'''
-def prime_factorization( num, primes ):
-    factor = []         #returns the prime factors of a number
-    factorization = []  #returns a factorization of the elements in the factor list above. there exists a bijection between factor and factorization
-    #temp_primes = [i for i in primes if i <= num]
-    for x in primes:
-        if( num % x == 0 ):
-            factor.append( x )
-    for x in factor:
-        tempCtr = 1
-        temp = num / x
-        while( temp % x == 0 ):
-            tempCtr += 1
-            temp = temp / x
-        factorization.append( tempCtr )
-    temp = map( increment, factorization )
-    return reduce(lambda x, y: x*y, temp)
-'''
-
 def multiplicative_order( a, n ):
     if fractions.gcd( a, n ) > 1:
         return 0
@@ -75,3 +56,22 @@ def prime_factorization( number, list_of_primes ):
             primes.append(prime_number)
 
     return primes
+
+'''
+def prime_factorization( num, primes ):
+    factor = []         #returns the prime factors of a number
+    factorization = []  #returns a factorization of the elements in the factor list above. there exists a bijection between factor and factorization
+    #temp_primes = [i for i in primes if i <= num]
+    for x in primes:
+        if( num % x == 0 ):
+            factor.append( x )
+    for x in factor:
+        tempCtr = 1
+        temp = num / x
+        while( temp % x == 0 ):
+            tempCtr += 1
+            temp = temp / x
+        factorization.append( tempCtr )
+    temp = map( increment, factorization )
+    return reduce(lambda x, y: x*y, temp)
+'''

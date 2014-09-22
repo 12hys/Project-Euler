@@ -7,7 +7,7 @@ digits = [0,1,2,3,4,5,6,7,8,9]
 count = 1
 digits.sort()
 digitsCount = len(digits)
-pivot = digits[1]
+pivot = digits[0]
 pivotIndex = 0
 maxValue = getValue(sorted(digits, reverse=True))
 currentPermutation = 0
