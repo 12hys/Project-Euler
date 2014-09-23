@@ -1,45 +1,30 @@
-#!/usr/bin/pypy
+#!/usr/local/bin/pypy
 
-import extra
+def eratosthenes_sieve(n):
+    candidates = list(range(n + 1))
+    fin = int(n ** 0.5)
+    for i in xrange(2, fin + 1):
+        if candidates[i]:
+            candidates[2 * i::i] = [None] * (n // i - 1)
+    print "Done loading %s primes" % (n)
+    return [i for i in candidates[2:] if i]
 
-start = 0
-end = 150000 #Trial and error
-consec_length = 4
-list_of_primes = extra.eratosthenes_sieve()
 
-#all of the numbers where the number of 
-#digits of the number equal the distinct
-#number of primes
-prime_length = []
+def prime_factorization(number, list_of_primes):
+    return [p for p in list_of_primes if number % p == 0]
 
-#this computation is the most intensive
-for i in range( start, end + 1 ):
-    prime_factorization = extra.prime_factorization( i, list_of_primes )
+primes = eratosthenes_sieve(1000)
 
-    if( len( prime_factorization ) == consec_length ):
-        print "Found:", str(i)
-        prime_length.append( i )
+candidates = [n for n in xrange(1, 150000) if len(prime_factorization(n, primes)) == 4]
 
-consec_numbers = [[]]
-length = len( prime_length )
-j = 0
+i = 0
+candidates_len = len(candidates)
+while i < candidates_len - 3:
+    first = candidates[i + 1] - candidates[i]
+    second = candidates[i + 2] - candidates[i + 1]
+    third = candidates[i + 3] - candidates[i + 2]
 
-for i, value in enumerate( prime_length ):
-    next_index = i + 1
-    if( next_index >= length ):
-        break;
-    elif( ( prime_length[next_index] - value ) == 1 ):
-        if( value not in consec_numbers[j] ):
-            consec_numbers[j].append( value )
-        if( prime_length[next_index] not in consec_numbers[j] ):
-            consec_numbers[j].append( prime_length[next_index] )
-    else:
-        if( len( consec_numbers[j] ) != 0 ):
-            consec_numbers.append([])
-            j = j+1
-        continue
+    if first == 1 and second == 1 and third == 1:
+        print candidates[i]
 
-for i in consec_numbers:
-    if( len(i) == consec_length ):
-        print 'Answer:', i
-        break
+    i += 1
