@@ -1,33 +1,42 @@
 #!/usr/local/bin/pypy
 
+import cProfile
+
 def eratosthenes_sieve(n):
     candidates = list(range(n + 1))
     fin = int(n ** 0.5)
-    for i in xrange(2, fin + 1):
+    for i in range(2, fin + 1):
         if candidates[i]:
             candidates[2 * i::i] = [None] * (n // i - 1)
-    print "Done loading %s primes" % (n)
     return [i for i in candidates[2:] if i]
 
-sieve = eratosthenes_sieve(1000)
-sieve = [n for n in sieve if n < 1000]
+def main():
+    big_sieve = set(eratosthenes_sieve(10000000))
 
-is_prime = lambda x: x in sieve
+    add_to = 10000
+    sieve = [n for n in big_sieve if n < add_to]
 
-idx = 0
-lookahead = idx + 1
-answer = 0
-sieve_length = len(sieve)
-print sieve
+    is_prime = lambda x: x in big_sieve
 
-while True:
-    temp = sum(sieve[idx:lookahead+1])
-    if is_prime(temp):
-        lookahead += 1
+    ptr = 0
+    len_consec_primes = 0
+    answer = 0
+    len_sieve = len(sieve)
+    
+    while ptr < len_sieve:
+        slide = range(len_sieve, ptr, -1)
+        for i in slide:
+            sum_num = sum(sieve[ptr:i])
+            if sum_num % 2 != 0 and sum_num < add_to and is_prime(sum_num):
+                temp = len(sieve[ptr:i])
+                if temp > len_consec_primes:
+                    len_consec_primes = temp
+                    answer = sum_num
+                break
 
-        if lookahead > sieve_length:
-            print "Answer: %s" % (temp)
-            break
-    else:
-        idx = lookahead
-        lookahead += 1
+        ptr = ptr + 1
+
+    print(answer)
+
+#main()
+cProfile.run('main()')
