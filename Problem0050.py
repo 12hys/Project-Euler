@@ -2,6 +2,8 @@
 
 import cProfile
 
+from multiprocessing import Pool
+
 def eratosthenes_sieve(n):
     candidates = list(range(n + 1))
     fin = int(n ** 0.5)
@@ -10,33 +12,32 @@ def eratosthenes_sieve(n):
             candidates[2 * i::i] = [None] * (n // i - 1)
     return [i for i in candidates[2:] if i]
 
-def main():
-    big_sieve = set(eratosthenes_sieve(10000000))
+def worker(slide):
+    sum_num = sum(sieve[ptr:slide])
 
-    add_to = 10000
-    sieve = [n for n in big_sieve if n < add_to]
+    if sum_num % 2 == 0:
+        return False
 
-    is_prime = lambda x: x in big_sieve
+    if sum_num < add_to and is_prime(sum_num):
+        return (len(sieve[ptr:slide]), sum_num)
 
-    ptr = 0
-    len_consec_primes = 0
-    answer = 0
-    len_sieve = len(sieve)
-    
-    while ptr < len_sieve:
-        slide = range(len_sieve, ptr, -1)
-        for i in slide:
-            sum_num = sum(sieve[ptr:i])
-            if sum_num % 2 != 0 and sum_num < add_to and is_prime(sum_num):
-                temp = len(sieve[ptr:i])
-                if temp > len_consec_primes:
-                    len_consec_primes = temp
-                    answer = sum_num
-                break
+    return False
 
-        ptr = ptr + 1
+big_sieve = set(eratosthenes_sieve(10000000))
 
-    print(answer)
+add_to = 100
+sieve = [n for n in big_sieve if n < add_to]
 
-#main()
-cProfile.run('main()')
+is_prime = lambda x: x in big_sieve
+
+ptr = 0
+len_sieve = len(sieve)
+
+pool = Pool(processes=4)
+
+print sieve
+
+while ptr < len_sieve:
+    print pool.map(worker, range(len_sieve, ptr, -1))
+    ptr = ptr + 1
+
