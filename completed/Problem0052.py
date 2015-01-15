@@ -2,7 +2,7 @@
 
 def same_digits(numbers):
     digits_list = [sorted([int(digit) for digit in str(number)]) for number in numbers]
-    return digits_list[1:] == digits_list[:-1]
+    return all(cmp(x, digits_list[0]) == 0 for x in digits_list)
 
 x = 2
 while True:
