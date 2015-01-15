@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
 num_sum = 0
 ctr = 0
@@ -10,8 +10,8 @@ def fib(x):
         return 0
     elif (x == 1):
         return 1
-    else:
-        return (fib(x-1)+fib(x-2))
+
+    return (fib(x-1)+fib(x-2))
 
 while (found == False):
     temp = fib(ctr)
@@ -21,4 +21,5 @@ while (found == False):
         ctr += 1
     else:
         found = True
-print( num_sum )
+
+print num_sum

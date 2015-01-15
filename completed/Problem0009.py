@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
 m = range(1, 1001)
 found = False
@@ -13,5 +13,4 @@ for ctr1 in m:
             tempb = b
             tempc = c
 
-print( "a: " + str(tempa) + " b: " + str(tempb) + " c: " + str(tempc) )
-print( "a*b*c: " + str(tempa*tempb*tempc) )
+print str(tempa*tempb*tempc)
