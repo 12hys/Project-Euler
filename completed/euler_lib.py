@@ -1,6 +1,7 @@
 import math
 import fractions
 
+increment = lambda n: n + 1
 
 def get_digits(number):
     return [int(i) for i in str(number)]
@@ -62,3 +63,21 @@ def divisor_count(n):
         print n #half-way mark output
 
     return ctr
+
+def divisor_count2(number, sieve):
+    if number == 1:
+        return 1
+
+    factorization = []
+    factor = [i for i in sieve if number % i == 0]
+
+    for x in factor:
+        ctr = 1
+        temp = number / x
+        while(temp % x == 0):
+            ctr += 1
+            temp = temp / x
+        factorization.append(ctr)
+
+    temp = map(increment, factorization)
+    return reduce(lambda x, y: x*y, temp)

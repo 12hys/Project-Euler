@@ -2,9 +2,7 @@
 
 import euler_lib as lib
 
-num_primes = 100000
-sieve = lib.eratosthenes_sieve(num_primes)
-
+sieve = lib.eratosthenes_sieve(100000)
 triangle_numbers = [1]
 i = 2
 ptr = 0
@@ -16,6 +14,6 @@ while i < end:
     i = i + 1
 
 for i in triangle_numbers:
-    if lib.divisor_count(i, sieve) > 500:
+    if lib.divisor_count2(i, sieve) > 500:
         print i
         break
