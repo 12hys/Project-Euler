@@ -14,6 +14,6 @@ while i < end:
     i = i + 1
 
 for i in triangle_numbers:
-    if lib.divisor_count2(i, sieve) > 500:
+    if lib.divisor_count_with_sieve(i, sieve) > 500:
         print i
         break

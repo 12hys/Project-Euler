@@ -64,7 +64,7 @@ def divisor_count(n):
 
     return ctr
 
-def divisor_count2(number, sieve):
+def divisor_count_with_sieve(number, sieve):
     if number == 1:
         return 1
 
