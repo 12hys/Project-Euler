@@ -1,8 +1,7 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
-print( str(pow(2,1000)) )
+sum_num = 0
+for i in str(pow(2, 1000)):
+    sum_num += int(i)
 
-sum = 0
-for i in str(pow(2,1000)):
-    sum += int(i)
-print( str(sum) )
+print str(sum_num)

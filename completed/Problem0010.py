@@ -1,14 +1,5 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
-#sieve from wikipedia
-def eratosthenes_sieve(n):
-    candidates = list(range(n+1))
-    fin = int(n**0.5)
-    for i in xrange(2, fin+1):
-        if candidates[i]:
-            candidates[2*i::i] = [None] * (n//i - 1)
- 
-    return [i for i in candidates[2:] if i]
+import euler_lib as lib
 
-listOfPrimes = eratosthenes_sieve(2000000)
-print( sum(listOfPrimes) )
+print sum(lib.eratosthenes_sieve(2000000))

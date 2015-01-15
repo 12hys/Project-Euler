@@ -1,18 +1,7 @@
 #!/usr/local/bin/pypy
 
 import collections
-
-
-def eratosthenes_sieve():
-    n = 1000000
-    print "Loading " + str(n) + " primes "
-    candidates = list(range(n + 1))
-    fin = int(n ** 0.5)
-    for i in xrange(2, fin + 1):
-        if candidates[i]:
-            candidates[2 * i::i] = [None] * (n // i - 1)
-    return [i for i in candidates[2:] if i]
-
+import euler_lib as lib
 
 def get_rotations(number):
     rotations = [number]
@@ -24,17 +13,13 @@ def get_rotations(number):
 
     return rotations
 
+answer = 0
+sieve = lib.eratosthenes_sieve(1000000)
+prime_numbers = filter(lambda x: x < 1000000, sieve)
 
-def main():
-    answer = 0
-    sieve = eratosthenes_sieve()
-    prime_numbers = filter(lambda x: x < 1000000, sieve)
+for n in prime_numbers:
+    rotations = get_rotations(n)
+    if all(p in prime_numbers for p in rotations):
+        answer += 1
 
-    for n in prime_numbers:
-        rotations = get_rotations(n)
-        if all(p in prime_numbers for p in rotations):
-            answer += 1
-
-    print "Answer: %s" % (answer)
-
-main()
+print answer

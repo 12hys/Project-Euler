@@ -1,21 +1,10 @@
 #!/usr/local/bin/pypy
 
-def eratosthenes_sieve(n):
-    candidates = list(range(n + 1))
-    fin = int(n ** 0.5)
-    for i in xrange(2, fin + 1):
-        if candidates[i]:
-            candidates[2 * i::i] = [None] * (n // i - 1)
-    print "Done loading %s primes" % (n)
-    return [i for i in candidates[2:] if i]
+import euler_lib as lib
 
+primes = lib.eratosthenes_sieve(1000)
 
-def prime_factorization(number, list_of_primes):
-    return [p for p in list_of_primes if number % p == 0]
-
-primes = eratosthenes_sieve(1000)
-
-candidates = [n for n in xrange(1, 150000) if len(prime_factorization(n, primes)) == 4]
+candidates = [n for n in xrange(1, 150000) if len(lib.prime_factorization(n, primes)) == 4]
 
 i = 0
 candidates_len = len(candidates)

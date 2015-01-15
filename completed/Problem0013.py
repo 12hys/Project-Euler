@@ -1,11 +1,13 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
 file = open('Problem0013.txt', 'r')
 x = file.readlines()
 
-sum = 0
+sum_num = 0
+
 for i in x:
-    sum += int(i)
-print( sum )
+    sum_num += int(i)
+
+print sum_num
 
 file.close()

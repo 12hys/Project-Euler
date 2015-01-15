@@ -14,7 +14,7 @@ currentPermutation = 0
 
 while currentPermutation < maxValue and count != 1000000:
     for i in range(digitsCount-1):
-        if(digits[i] < digits[i+1]):
+        if digits[i] < digits[i+1]:
             pivot = digits[i]
             pivotIndex = i
 

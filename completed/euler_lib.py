@@ -1,6 +1,10 @@
 import math
 import fractions
 
+
+def get_digits(number):
+    return [int(i) for i in str(number)]
+
 def unique(seq):
     seen = set()
     seen_add = seen.add
@@ -22,7 +26,7 @@ def is_prime(number, sieve):
     return number in sieve
 
 def is_palindrome(number):
-    digits = [int(i) for i in str(number)]
+    digits = get_digits(number)
     reversed_digits = list(reversed(digits))
 
     if digits == reversed_digits:
@@ -30,22 +34,31 @@ def is_palindrome(number):
 
     return False
 
-def eratosthenes_sieve():
-    n = 10000000
-    candidates = list( range( n + 1 ) )
+def eratosthenes_sieve(n):
+    candidates = list(range(n + 1))
     fin = int( n**0.5 )
+
     for i in xrange( 2, fin + 1 ):
         if candidates[i]:
             candidates[2*i::i] = [None] * (n//i - 1)
+
     return [i for i in candidates[2:] if i]
 
-def prime_factorization( number, list_of_primes ):
-    primes = []
-    for prime_number in list_of_primes:
-        if( prime_number > number ):
-            break
+def prime_factorization(n, primes):
+    return [prime for prime in primes if n % prime == 0]
 
-        if( number % prime_number == 0 ):
-            primes.append(prime_number)
+def get_divisors(num):
+    return [n for n in range(1, num) if num % n == 0]
 
-    return primes
+def divisor_count(n):
+    ctr = 0
+    potential_divisors = range( 1, n + 1 )
+
+    for i in potential_divisors:
+        if(n % i == 0):
+            ctr += 1
+
+    if( n > 10000 ):
+        print n #half-way mark output
+
+    return ctr

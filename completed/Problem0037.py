@@ -1,13 +1,6 @@
 #!/usr/local/bin/pypy
 
-def eratosthenes_sieve(n):
-    print "Loading " + str(n) + " primes "
-    candidates = list(range(n + 1))
-    fin = int(n ** 0.5)
-    for i in xrange(2, fin + 1):
-        if candidates[i]:
-            candidates[2 * i::i] = [None] * (n // i - 1)
-    return [i for i in candidates[2:] if i]
+import euler_lib as lib
 
 def trunked(number):
     trunked_left = [number]
@@ -32,15 +25,14 @@ def trunked(number):
 
 ctr = 0
 number = 10
-sieve = eratosthenes_sieve(1000000)
+sieve = lib.eratosthenes_sieve(1000000)
 answer = 0
 
 while ctr != 11:
     if trunked(number):
         ctr += 1
-        print "Found %s: %s" % (ctr, number)
         answer += number
 
     number += 1
 
-print "Sum: %s" % answer
+print answer

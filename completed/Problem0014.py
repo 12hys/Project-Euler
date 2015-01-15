@@ -1,28 +1,27 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
-maxSteps = 0
-startingNumber = 0
+max_steps = 0
+start = 0
 
-def even(n):
-    return (n/2)
-
-def odd(n):
-    return (3*n + 1)
+even = lambda n: (n/2)
+odd = lambda n: (3*n + 1)
 
 def steps(start):
     step = 1
-    while (start != 1):
-        if(start%2 == 0):
+    while start != 1:
+        if start % 2 == 0:
             start = even(start)
         else:
             start = odd(start)
         step += 1
+
     return step
 
-for i in range(1,1000000):
-    tempSteps = steps(i)
-    if(tempSteps > maxSteps):
-        maxSteps = tempSteps
-        startingNumber = i
-    print( str(i) + ' has ' + str(tempSteps) + ' steps!' )
-print( str(startingNumber) + ' takes the max steps at ' + str(maxSteps) )
+for i in range(1, 1000000):
+    temp_steps = steps(i)
+
+    if temp_steps > max_steps:
+        max_steps = temp_steps
+        start = i
+
+print str(start)

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-sum = 0
+num_sum = 0
 ctr = 0
 temp = 0
 found = False
@@ -17,8 +17,8 @@ while (found == False):
     temp = fib(ctr)
     if (temp <= 4000000):
         if (temp%2 == 0):
-            sum += temp
+            num_sum += temp
         ctr += 1
     else:
         found = True
-print( sum )
+print( num_sum )

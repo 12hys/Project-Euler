@@ -1,11 +1,7 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
-import time
+sum_num = 0
+for x in range(1, 1001):
+    sum_num += pow(x, x)
 
-t1 = time.time()
-sum = 0
-for x in range(1,1001):
-    sum += pow(x,x)
-t2 = time.time()
-print( 'Last 10 digits of the series:' + str(sum)[-10:] )
-print( 'This method runs in: ' + str(t2-t1), 'seconds!' )
+print str(sum_num)[-10:]

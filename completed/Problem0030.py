@@ -1,24 +1,14 @@
-#!/usr/bin/pypy
+#!/usr/local/bin/pypy
 
-def get_digits( number ):
-    digits = []
-    number_string = str( number )
-    for ch in number_string:
-        digits.append(int(ch))
-    return digits
+import euler_lib as lib
 
-def fifth_power( number ):
-    return number**5
-
-start = 2
-end = (9**5)*6
+fifth_power = lambda x: x**5
 
 answer = []
-for i in range( start, end + 1 ):
-    digits = get_digits( i )
-    sum_of_digits = sum( map( fifth_power, digits ) )
-    if( i == sum_of_digits ):
-        print i, digits
+for i in range(2, (9**5)*6 + 1):
+    sum_of_digits = sum(map(fifth_power, lib.get_digits(i)))
+
+    if(i == sum_of_digits):
         answer.append(i)
 
-print 'Answer: ' + str( sum( answer ) )
+print str(sum(answer))

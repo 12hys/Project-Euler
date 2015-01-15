@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/local/bin/pypy
 
 import calendar
 from datetime import date
@@ -12,4 +12,4 @@ for year in twentieth_century:
         if( date( year, month, 1 ).weekday() == 6 ):
             sunday_count += 1
 
-print( sunday_count )
+print sunday_count
