@@ -4,10 +4,10 @@ import fractions
 increment = lambda n: n + 1
 
 def is_pandigital(number):
-    digits = get_digits(number)
+    digits = sorted(get_digits(number))
     compare = range(1, len(digits) + 1)
 
-    return cmp(sorted(digits), compare) == 0
+    return cmp(digits, compare) == 0
 
 def is_pentagonal(candidate):
     return ((sqrt(24 * candidate + 1) + 1) / 6) % 2 == 0
