@@ -1,5 +1,9 @@
 import math
 import fractions
+import functools
+import operator
+
+from prime_decomposition import decompose
 
 increment = lambda n: n + 1
 
@@ -59,6 +63,10 @@ def prime_factorization(n, primes):
 
 def get_divisors(num):
     return [n for n in range(1, num) if num % n == 0]
+
+def get_divisor_count(number):
+    decomp = list(decompose(number))
+    return functools.reduce(operator.mul, [decomp.count(prime) + 1 for prime in unique(decomp)], 1)
 
 def divisor_count(n):
     ctr = 0
