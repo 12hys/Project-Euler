@@ -1,16 +1,9 @@
 #!/usr/local/bin/pypy
 
 import cProfile
+import euler_lib as lib
 
 from multiprocessing import Pool
-
-def eratosthenes_sieve(n):
-    candidates = list(range(n + 1))
-    fin = int(n ** 0.5)
-    for i in range(2, fin + 1):
-        if candidates[i]:
-            candidates[2 * i::i] = [None] * (n // i - 1)
-    return [i for i in candidates[2:] if i]
 
 def worker(slide):
     sum_num = sum(sieve[ptr:slide])
@@ -23,7 +16,7 @@ def worker(slide):
 
     return False
 
-big_sieve = set(eratosthenes_sieve(10000000))
+big_sieve = set(lib.eratosthenes_sieve(10000000))
 
 add_to = 100
 sieve = [n for n in big_sieve if n < add_to]
