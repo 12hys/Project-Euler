@@ -4,7 +4,7 @@ import euler_lib as lib
 from multiprocessing import Pool
 
 p = Pool(8)
-divisors = p.map(lib.get_divisor_count, range(2, 10**7))
+divisors = p.map(lib.get_divisor_count, range(2, 10**7+1))
 p.close();
 
 ctr = 0

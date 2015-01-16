@@ -7,6 +7,18 @@ from prime_decomposition import decompose
 
 increment = lambda n: n + 1
 
+def prime(a):
+    return not (a < 2 or any(a % x == 0 for x in range(2, int(a ** 0.5) + 1)))
+
+def digit_count(n):
+    if n > 0:
+        return int(math.log10(n)) + 1
+
+    if n == 0:
+        return 1
+
+    return int(math.log10(-n)) + 2
+
 def is_pandigital(number):
     digits = sorted(get_digits(number))
     compare = range(1, len(digits) + 1)
