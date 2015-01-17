@@ -4,21 +4,18 @@ import cProfile
 import euler_lib as lib
 
 from multiprocessing import Pool
+from operator import itemgetter
 
 def worker(slide):
     sum_num = sum(sieve[ptr:slide])
 
-    if sum_num % 2 == 0:
-        return False
-
-    if sum_num < add_to and is_prime(sum_num):
+    if sum_num % 2 != 0 and sum_num < add_to and is_prime(sum_num):
         return (len(sieve[ptr:slide]), sum_num)
 
-    return False
 
 big_sieve = set(lib.eratosthenes_sieve(10000000))
 
-add_to = 100
+add_to = 100000
 sieve = [n for n in big_sieve if n < add_to]
 
 is_prime = lambda x: x in big_sieve
@@ -26,11 +23,17 @@ is_prime = lambda x: x in big_sieve
 ptr = 0
 len_sieve = len(sieve)
 
+print "creating pool..."
 pool = Pool(processes=4)
 
-print sieve
+print "creating data..."
+data = tuple([[ptr, slide] for ptr in range(len_sieve) for slide in range(len_sieve, ptr, -1)])
+print "done creating data..."
 
-while ptr < len_sieve:
-    print pool.map(worker, range(len_sieve, ptr, -1))
-    ptr = ptr + 1
+print "looping..."
+results = pool.map(worker, data)
+print "looping complete!"
 
+refined = [x for x in results if x != None]
+
+print max(refined, key=itemgetter(0))
