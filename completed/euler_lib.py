@@ -97,13 +97,8 @@ def is_prime(number, sieve):
     return number in sieve
 
 def is_palindrome(number):
-    digits = get_digits(number)
-    reversed_digits = list(reversed(digits))
-
-    if digits == reversed_digits:
-        return True
-
-    return False
+    num = str(number)
+    return num == num[::-1]
 
 def eratosthenes_sieve(n):
     candidates = list(range(n + 1))
