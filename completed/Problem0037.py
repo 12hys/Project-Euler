@@ -2,6 +2,7 @@
 
 import euler_lib as lib
 
+
 def trunked(number):
     trunked_left = [number]
     trunked_right = [number]

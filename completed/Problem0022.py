@@ -2,7 +2,7 @@
 
 import csv
 
-with open( 'names.txt', 'r' ) as text_file:
+with open('names.txt', 'r') as text_file:
     rows = csv.reader(text_file, delimiter=',', quotechar='"')
     names = [name for row in rows for name in row]
 

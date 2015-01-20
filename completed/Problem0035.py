@@ -3,6 +3,7 @@
 import collections
 import euler_lib as lib
 
+
 def get_rotations(number):
     rotations = [number]
     d = collections.deque([int(n) for n in str(number)])

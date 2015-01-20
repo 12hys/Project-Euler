@@ -3,8 +3,9 @@
 max_steps = 0
 start = 0
 
-even = lambda n: (n/2)
-odd = lambda n: (3*n + 1)
+even = lambda n: (n / 2)
+odd = lambda n: (3 * n + 1)
+
 
 def steps(start):
     step = 1

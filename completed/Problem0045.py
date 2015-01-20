@@ -1,8 +1,8 @@
 #!/usr/bin/pypy
 
-t = lambda n: n*(n+1)/2
-p = lambda n: n*(3*n-1)/2
-h = lambda n: n*(2*n-1)
+t = lambda n: n * (n + 1) / 2
+p = lambda n: n * (3 * n - 1) / 2
+h = lambda n: n * (2 * n - 1)
 
 end = 100000
 

@@ -7,7 +7,8 @@ max_product = 0
 
 for x in range(0, len(string)):
     if(x < len(string) - 5):
-        product = int(string[x]) * int(string[x+1]) * int(string[x+2]) * int(string[x+3]) * int(string[x+4])
+        product = int(string[x]) * int(string[x + 1]) * \
+            int(string[x + 2]) * int(string[x + 3]) * int(string[x + 4])
         max_product = max(max_product, product)
     else:
         break

@@ -4,8 +4,9 @@ import math
 import itertools
 import euler_lib as lib
 
-c = lambda a, b: math.sqrt(a**2 + b**2)
+c = lambda a, b: math.sqrt(a ** 2 + b ** 2)
 test = lambda a, b, p: (a + b + c(a, b)) == p
+
 
 def count_permutations(p):
     permutes = []
@@ -20,7 +21,7 @@ def count_permutations(p):
                 permutes.append(sorted([a, b, int(c_val)]))
 
     permutes.sort()
-    return len(list(k for k,_ in itertools.groupby(permutes)))
+    return len(list(k for k, _ in itertools.groupby(permutes)))
 
 max_permutes = 0
 perimeter = 0

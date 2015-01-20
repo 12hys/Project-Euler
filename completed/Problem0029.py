@@ -2,6 +2,7 @@
 
 import cProfile
 
+
 def method_one():
     numbers = range(2, 101)
     answer = []
@@ -12,6 +13,7 @@ def method_one():
                 answer.append(ans)
 
     print "Answer: %s" % (len(answer))
+
 
 def method_two():
     numbers = range(2, 101)

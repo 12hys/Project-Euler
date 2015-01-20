@@ -2,9 +2,10 @@
 
 x = 1
 
+
 def loop(start):
     passAll = 0
-    for ctr in range(1,21):
+    for ctr in range(1, 21):
         if(start % ctr == 0):
             passAll += 1
         else:
@@ -13,9 +14,11 @@ def loop(start):
         return True
     else:
         if(passAll > 15):
-            print( str(start) + " passed the first " + str(passAll) + " numbers." )
+            print(
+                str(start) + " passed the first " + str(passAll) + " numbers.")
         return False
 
 while(loop(x) == False):
     x += 1
-print( "Number: " + str(x) )
+
+print("Number: " + str(x))

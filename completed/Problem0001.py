@@ -1,7 +1,7 @@
 #!/usr/local/bin/pypy
 
 sum_num = 0
-for x in range(1,1000):
+for x in range(1, 1000):
     if (x % 3 == 0) or (x % 5 == 0):
         sum_num += x
 

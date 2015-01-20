@@ -1,7 +1,8 @@
 #!/usr/local/bin/pypy
 
+
 def sum_of_digit_squares(num):
-    return sum(map(lambda x: int(x)**2, str(num)))
+    return sum(map(lambda x: int(x) ** 2, str(num)))
 
 answers = []
 for num in range(2, 10000001):

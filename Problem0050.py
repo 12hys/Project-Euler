@@ -6,6 +6,7 @@ import euler_lib as lib
 from multiprocessing import Pool
 from operator import itemgetter
 
+
 def worker(slide):
     sum_num = sum(sieve[ptr:slide])
 
@@ -27,7 +28,8 @@ print "creating pool..."
 pool = Pool(processes=4)
 
 print "creating data..."
-data = tuple([[ptr, slide] for ptr in range(len_sieve) for slide in range(len_sieve, ptr, -1)])
+data = tuple([[ptr, slide] for ptr in range(len_sieve)
+              for slide in range(len_sieve, ptr, -1)])
 print "done creating data..."
 
 print "looping..."

@@ -4,7 +4,8 @@ import euler_lib as lib
 
 primes = lib.eratosthenes_sieve(1000)
 
-candidates = [n for n in xrange(1, 150000) if len(lib.prime_factorization(n, primes)) == 4]
+candidates = [n for n in xrange(1, 150000) if len(
+    lib.prime_factorization(n, primes)) == 4]
 
 i = 0
 candidates_len = len(candidates)
