@@ -3,9 +3,9 @@
 from math import sqrt
 import euler_lib as lib
 
-
 def generate_pentagonals(ctr, n_range):
     return [n * (3 * n - 1) / 2 for n in n_range]
+pent = lambda n_range: [n * (3 * n - 1) / 2 for n in n_range]
 
 
 # def generate_hashmap(p_n, jj, kk):
