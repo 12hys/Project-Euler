@@ -1,24 +1,17 @@
 #!/usr/bin/python
 
-x = 1
+my_range = xrange(1, 21)
 
-
-def loop(start):
-    passAll = 0
-    for ctr in range(1, 21):
-        if(start % ctr == 0):
-            passAll += 1
-        else:
-            break
-    if(passAll == 20):
+def loop(number):
+    divisor_count = len([ctr for ctr in my_range if number % ctr == 0])
+    if(divisor_count == 20):
         return True
-    else:
-        if(passAll > 15):
-            print(
-                str(start) + " passed the first " + str(passAll) + " numbers.")
-        return False
+
+    return False
+
+x = 1
 
 while(loop(x) == False):
     x += 1
 
-print("Number: " + str(x))
+print(str(x))
