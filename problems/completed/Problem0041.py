@@ -50,4 +50,4 @@ def method_three():
 
     print max(max_list)
 
-method_one()
+method_three()
