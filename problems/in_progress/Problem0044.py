@@ -1,10 +1,9 @@
-#!/usr/local/bin/pypy
-
 from math import sqrt
-from euler_lib import euler_lib
+from problems.euler_lib import euler_lib as lib
 
 def generate_pentagonals(ctr, n_range):
     return [n * (3 * n - 1) / 2 for n in n_range]
+
 pent = lambda n_range: [n * (3 * n - 1) / 2 for n in n_range]
 
 

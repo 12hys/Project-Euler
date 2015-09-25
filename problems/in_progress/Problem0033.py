@@ -1,8 +1,4 @@
-#!/usr/local/bin/pypy
-
-from completed.euler_lib import euler_lib
-
-print "hello world"
+from problems.euler_lib import euler_lib as lib
 
 for num in range(1, 100):
     for den in range(1, 100):

@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 count = 0
 
 for two_pounds in range(200, -1, -200):
@@ -10,5 +8,5 @@ for two_pounds in range(200, -1, -200):
 					for five_pence in range(ten_pence, -1, -5):
 						for two_pence in range(five_pence, -1, -2):
 							count += 1
-		
+
 print count
