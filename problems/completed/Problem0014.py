@@ -16,7 +16,7 @@ def steps(start):
 
     return step
 
-for i in range(1, 1000000):
+for i in xrange(1, 1000000):
     temp_steps = steps(i)
 
     if temp_steps > max_steps:

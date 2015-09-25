@@ -1,5 +1,5 @@
 import fractions
-import euler_lib as lib
+from problems.euler_lib import euler_lib as lib
 
 base = 10
 primes = lib.eratosthenes_sieve(1001)

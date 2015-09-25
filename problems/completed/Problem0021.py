@@ -1,13 +1,16 @@
-import euler_lib as lib
+from problems.euler_lib import euler_lib as lib
 
-amicable_numbers = []
+running_sum = 0
+sum_of_divisors = lambda x: sum(lib.get_divisors(x))
 
-for number in range(0, 10000):
-    sum_of_divisor = sum(lib.get_divisors(number))
+for i in xrange(0, 10000):
+    sum_i = sum_of_divisors(i)
 
-    if number != sum_of_divisor:
-        if sum(lib.get_divisors(sum_of_divisor)) == number:
-            amicable_numbers.append(number)
-            amicable_numbers.append(sum_of_divisor)
+    if i != sum_i and sum_of_divisors(sum_i) == i:
+        running_sum += i
 
-print sum(lib.unique(amicable_numbers))
+print running_sum
+
+# For reference:
+def get_divisors(num):
+    return [n for n in range(1, num) if num % n == 0]

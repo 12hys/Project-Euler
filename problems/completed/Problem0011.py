@@ -47,7 +47,6 @@ def product(north, south, east, west, ne, se, sw, nw, row, col):
         tempProduct = max(tempProduct, matrix[row][col]*matrix[row+1][col-1]*matrix[row+2][col-2]*matrix[row+3][col-3])
     if(nw == True):
         tempProduct = max(tempProduct, matrix[row][col]*matrix[row-1][col-1]*matrix[row-2][col-2]*matrix[row-3][col-3])
-    print( "[" + str(row) + "," + str(col) + "]: " + str(tempProduct) )
     return tempProduct
 
 for row in range(0, 20):
@@ -142,4 +141,5 @@ for row in range(0, 20):
             sw = True
             nw = True
             maxProduct = max(maxProduct, product(north, south, east, west, ne, se, sw, nw, row, col))
-        print( "maxProduct: " + str(maxProduct) )
+
+print( "maxProduct: " + str(maxProduct) )

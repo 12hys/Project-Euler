@@ -3,16 +3,30 @@ import os
 file_path = os.path.join(os.path.dirname(__file__), '..', 'euler_lib/triangle-18.txt')
 
 file = open(file_path, 'r')
-stringsOfNumbers = file.readlines()
+triangle = file.readlines()
+file.close()
+
+sum_triangle = []
+
+for i, value in enumerate(triangle):
+    triangle[i] = map(int, value.strip().split(' '))
+
+    if i == 0:
+        sum_triangle = triangle[i]
+        continue
+
+    previous_row = triangle[i - 1]
+    for j, previous_value in enumerate(previous_row):
+
+
+
+print max(sum_triangle)
+
+'''
 listOfNumbers = []
 
 for i in range(len(stringsOfNumbers)):
     stringsOfNumbers[i] = str(stringsOfNumbers[i]).rstrip('\n')
-    '''
-    split the strings using the space delim,
-    convert to a tuple for conversion to int,
-    and append to the main list of numbers
-    '''
     listOfNumbers.append(tuple(str(stringsOfNumbers[i]).split(' ')))
 
 # convert strings of numbers to int
@@ -40,3 +54,4 @@ for currentRow in range(len(listOfNumbers)):
         sumOfTriangle = currentRowTemp
 
 print max(sumOfTriangle)
+'''

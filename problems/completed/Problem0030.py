@@ -1,4 +1,4 @@
-import euler_lib as lib
+from problems.euler_lib import euler_lib as lib
 
 fifth_power = lambda x: x ** 5
 

@@ -6,4 +6,4 @@ file = open(file_path, 'r')
 x = file.readlines()
 file.close()
 
-print sum([int(i) for i in x])
+print str(sum([int(i) for i in x]))[:10]

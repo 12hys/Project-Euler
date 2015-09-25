@@ -1,6 +1,5 @@
 import cProfile
 
-
 def method_one():
     numbers = range(2, 101)
     answer = []

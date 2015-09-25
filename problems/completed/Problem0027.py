@@ -1,7 +1,7 @@
 import itertools
-import euler_lib as lib
 import operator
 import collections
+from problems.euler_lib import euler_lib as lib
 
 quad = lambda n_range, a, b: [n**2 + a*n + b for n in n_range]
 

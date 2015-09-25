@@ -1,14 +1,13 @@
-m = range(1, 1001)
-found = False
+my_range = xrange(1, 1001)
+cross_product = [[x, y] for x in my_range for y in my_range]
 
-for ctr1 in m:
-    for ctr2 in range(ctr1, 0, -1):
-        a = pow(ctr1, 2) - pow(ctr2, 2)
-        b = 2 * ctr1 * ctr2
-        c = pow(ctr1, 2) + pow(ctr2, 2)
-        if(a + b + c == 1000):
-            tempa = a
-            tempb = b
-            tempc = c
+for [x, y] in cross_product:
+    a = pow(x, 2) - pow(y, 2)
+    b = 2 * x * y
+    c = pow(x, 2) + pow(y, 2)
 
-print str(tempa * tempb * tempc)
+    if(a + b + c == 1000):
+        product = a * b * c
+        if product > 0:
+            print str(product)
+            break
