@@ -1,1 +1,1 @@
-print str(sum([int(i) for i in str(pow(2, 1000))]))
+print str(sum(map(int, str(pow(2, 1000)))))

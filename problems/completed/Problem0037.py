@@ -5,8 +5,8 @@ def trunked(number):
     trunked_left = [number]
     trunked_right = [number]
 
-    left_digits = [int(x) for x in str(number)]
-    right_digits = [int(x) for x in str(number)]
+    left_digits = map(int, str(number))
+    right_digits = map(int, str(number))
 
     length_digits = len(left_digits)
 

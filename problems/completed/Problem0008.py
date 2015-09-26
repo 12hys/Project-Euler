@@ -9,9 +9,9 @@ stop = start + window
 input_length = len(my_input)
 
 while stop != input_length + 1:
-    my_input_ints = [int(x) for x in my_input[start:stop]]
+    my_input_ints = map(int, my_input[start:stop])
     product = reduce(mul, my_input_ints, 1)
-    
+
     if product > max_product:
         max_product = product
 
