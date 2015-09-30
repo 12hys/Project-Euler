@@ -1,24 +1,41 @@
 import os
+import sys
 
 file_path = os.path.join(os.path.dirname(__file__), '..', 'euler_lib/triangle-18.txt')
 
 file = open(file_path, 'r')
+
 triangle = file.readlines()
-file.close()
-
-sum_triangle = []
-
 for i, value in enumerate(triangle):
     triangle[i] = map(int, value.strip().split(' '))
 
-    if i == 0:
-        sum_triangle = triangle[i]
-        continue
+file.close()
 
-    previous_row = triangle[i - 1]
-    for j, previous_value in enumerate(previous_row):
+sum_triangle = []
+triangle_size = len(triangle) - 1
+for i, current_row in enumerate(triangle):
+    if i == triangle_size:
+        break
 
-
+    temp = []
+    next_row = triangle[i + 1]
+    for j, value in enumerate(current_row):
+        if j == 0:
+            temp.append(value + next_row[0])
+            temp.append(value + next_row[1])
+        elif j == 1:
+            print current_row
+            print next_row
+            print temp
+            sys.exit(0)
+        else:
+            temp[j] = max(temp[j], value + next_row[j])
+            temp.append(value + next_row[j + 1])
+            #comparitor = next_row[j + 1]
+            #value_one = value + comparitor
+            #value_two = current_row[j + 1] + comparitor
+            #temp.append(max(value_one, value_two))
+    sum_triangle = temp
 
 print max(sum_triangle)
 

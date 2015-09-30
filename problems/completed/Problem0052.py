@@ -1,13 +1,12 @@
+import itertools
+
 def same_digits(numbers):
     digits_list = [sorted([int(digit) for digit in str(number)]) for number in numbers]
     return all(cmp(x, digits_list[0]) == 0 for x in digits_list)
 
-x = 2
-while True:
-    array = [x, 2 * x, 3 * x, 4 * x, 5 * x, 6 * x]
+my_array = range(1, 7)
 
-    if same_digits(array):
-        print x
+for i in itertools.count(start=1, step=1):
+    if same_digits(map(lambda x: x*i, my_array)):
+        print i
         break
-
-    x = x + 1
